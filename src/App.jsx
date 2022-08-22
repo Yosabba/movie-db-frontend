@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <section className="App">
+    <section className="App p-2">
       <AddMovie />
       <div className="grid grid-cols-auto-fit">{showMovies()}</div>
     </section>
