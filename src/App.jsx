@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Movie from "./components/Movie";
-import AddMovie from "./components/addMovie";
+import AddMovie from "./components/AddMovie";
 
 function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
