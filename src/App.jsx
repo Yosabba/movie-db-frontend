@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Movie from "./components/Movie";
+import AddMovie from "./components/addMovie";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isDataFetched, setIsDataFetched] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -18,7 +19,11 @@ function App() {
       const {
         data: { data },
       } = response;
+
       setData(data);
+      setIsDataFetched(true);
+
+
     } catch ({ message }) {
       console.log(message);
     }
@@ -32,6 +37,7 @@ function App() {
 
   return (
     <section className="App">
+      <AddMovie />
       <div className="grid grid-cols-auto-fit">{showMovies()}</div>
     </section>
   );
