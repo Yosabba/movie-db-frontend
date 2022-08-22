@@ -10,13 +10,13 @@ const Movie = ({ movie }) => {
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
     return `${hours}h ${remainingMinutes}m`;
-  }; 
+  };
 
   return (
-    <section className="flex flex-col justify-center items-center border border-slate-200 rounded-lg m-4">
+    <section className=" cursor-pointer flex flex-col justify-center items-center border border-slate-200 rounded-lg m-4 transition ease-in-out duration-200 hover:scale-105 hover:bg-grey-200">
       <br />
-      <img src={movie.image_url} alt="" width={200} />
-      <h1 className="text-2xl font-medium text-center">{movie.title}</h1>
+      <img src={movie.image_url} alt="" width={280} />
+      <h1 className="text-3xl font-medium text-center">{movie.title}</h1>
       <br />
 
       <div className="mx-4">

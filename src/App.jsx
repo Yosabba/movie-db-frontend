@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Movie from "./components/Movie";
-import AddMovie from "./components/AddMovie";
 
 function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
@@ -20,10 +19,9 @@ function App() {
         data: { data },
       } = response;
 
+
       setData(data);
       setIsDataFetched(true);
-
-
     } catch ({ message }) {
       console.log(message);
     }
@@ -31,14 +29,17 @@ function App() {
 
   const showMovies = () => {
     return data.map((movie) => {
-      return <Movie key={movie.id} movie={movie} />;
+      return <Movie key={movie.movie_id} movie={movie} />;
     });
   };
 
   return (
     <section className="App p-2">
-      <AddMovie />
-      <div className="grid grid-cols-auto-fit">{showMovies()}</div>
+      {isDataFetched ? (
+        <div className="grid grid-cols-auto-fit">{showMovies()}</div>
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </section>
   );
 }

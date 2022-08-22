@@ -67,7 +67,7 @@ const AddMovie = () => {
           onChange={handleChange}
         />
 
-        <label htlml>Rating</label>
+        <label htmlFor='ratings'>Rating</label>
         <input
           className="border-slate-200 border-2 rounded"
           type="text"
