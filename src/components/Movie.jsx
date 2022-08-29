@@ -15,7 +15,7 @@ const Movie = ({ movie }) => {
   };
 
   return (
-    <section className=" cursor-pointer flex flex-col justify-center items-center border border-slate-200 rounded-lg m-4 transition ease-in-out duration-200 hover:scale-105 hover:bg-grey-200">
+    <section className=" cursor-pointer flex flex-col justify-center items-center border border-slate-200 rounded-lg m-4 transition ease-in-out duration-500 hover:scale-105 hover:bg-grey-200">
       <Link to={`/${movie.movie_id}`}>
         <br />
         <img

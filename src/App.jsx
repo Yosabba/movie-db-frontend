@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+
 import axios from "axios";
-import Movie from "./components/Movie";
+import Home from "./pages/Home";
+import MovieDetails from "./components/MovieDetails";
 
 function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
@@ -19,7 +22,6 @@ function App() {
         data: { data },
       } = response;
 
-
       setData(data);
       setIsDataFetched(true);
     } catch ({ message }) {
@@ -34,13 +36,10 @@ function App() {
   };
 
   return (
-    <section className="App p-2">
-      {isDataFetched ? (
-        <div className="grid grid-cols-auto-fit">{showMovies()}</div>
-      ) : (
-        <h1>Loading...</h1>
-      )}
-    </section>
+    <Routes>
+      <Route path="/" element={<Home data={data} />} />
+      <Route path="/:movieId" element={<MovieDetails data={data} />} />
+    </Routes>
   );
 }
 
